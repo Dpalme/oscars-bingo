@@ -31,7 +31,7 @@ export function Voting() {
   }, [initialValues, form])
 
   return (
-    <div className="flex flex-col gap-8 text-center my-16">
+    <div className="flex flex-col gap-8 text-center mt-16 mb-32">
       <h1>98th Academy Awards</h1>
       {!isSubmitted && (
         <Form
@@ -46,17 +46,20 @@ export function Voting() {
             return (
               <div className="flex flex-col gap-4 w-full">
                 <h2 className="text-2xl">{name}</h2>
-                <div className="grid grid-cols-5 gap-2 w-full">
+                <div className="grid md:grid-cols-5 gap-2 w-full">
                   {movies.map((movie, i) => (
-                    <div className="flex flex-col gap-1 relative grayscale scale-90 has-checked:grayscale-0 has-checked:scale-105 border-t-4 border-transparent has-checked:border-[#c79f27] shadow-md transform-gpu transition-all h-fit">
-                      {movie.id ? <MovieCard movieId={movie.id} /> : movie.name}
+                    <div className="flex md:flex-col gap-1 relative grayscale has-checked:grayscale-0 has-checked:scale-102 border-b-4 md:border-b-0 md:border-t-4 border-transparent has-checked:border-[#c79f27] shadow-md transform-gpu transition-all h-fit">
+                      {movie.id ? (
+                        <MovieCard movieId={movie.id} extra={movie.nominee} />
+                      ) : (
+                        movie.name
+                      )}
                       <input
                         type="radio"
                         {...form.register(name)}
                         value={i}
                         className="absolute w-full h-full opacity-1 left-0 top-0 z-1000"
                       ></input>
-                      {movie.nominee && <p className="mb-1">{movie.nominee}</p>}
                     </div>
                   ))}
                 </div>
