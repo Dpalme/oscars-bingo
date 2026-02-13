@@ -31,7 +31,7 @@ export function Voting() {
   }, [initialValues, form])
 
   return (
-    <div className="flex flex-col gap-8 text-center mt-16 mb-32">
+    <div className="flex flex-col gap-8 text-center my-16">
       <h1>98th Academy Awards</h1>
       {!isSubmitted && (
         <Form

@@ -73,9 +73,8 @@
 
   body {
     margin: 0;
-    min-width: 100vw;
-    min-height: 100vh;
-    font-family:;
+    min-width: 100dvw;
+    min-height: 100dvh;
   }
 
   h1,
