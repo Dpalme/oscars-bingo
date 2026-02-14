@@ -5,6 +5,7 @@ import { Form, useForm } from 'react-hook-form'
 import { useEffect, useMemo, useState } from 'react'
 import { Ballot } from './Ballot'
 import { categoryToNominations } from './helpers/categoryToNominations'
+import { nominationToEmoji } from './helpers/nominationToEmoji'
 
 export function Voting() {
   const initialValues = location.search
@@ -23,7 +24,7 @@ export function Voting() {
 
   useMemo(() => {
     if (!initialValues) return
-    const value = initialValues.split('=')[1]
+    const value = atob(initialValues.split('=')[1])
     Object.keys(CATEGORIES).forEach((category, i) =>
       form.setValue(category, value.charAt(i)),
     )
@@ -66,6 +67,14 @@ export function Voting() {
               </div>
             )
           })}
+          {Object.values<number>(votes)
+            .map((vote, i): string =>
+              nominationToEmoji(
+                Object.keys(CATEGORIES)[i] as keyof typeof CATEGORIES,
+                vote,
+              ),
+            )
+            .join('')}
           <button
             type="submit"
             className="px-4 py-2 bg-[#7f1b1e] rounded-md text-xl text-white! cursor-pointer"
@@ -73,7 +82,7 @@ export function Voting() {
               window.location.replace(
                 window.location.href.split('?')[0] +
                   '?_=' +
-                  Object.values(votes).join(''),
+                  btoa(Object.values(votes).join('')),
               )
             }}
           >

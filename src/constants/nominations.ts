@@ -1,207 +1,150 @@
 import z from 'zod'
 
-const SINNERS = 1233413
-const ARCO = 804370
-const AFAA = 83533
-const BLUE_MOON = 1299655
-const BUGONIA = 701387
-const COME_SEE_ME = 1400780
-const CUTTING_THROUGH_ROCKS = 1400793
-const DIANE_WARREN = 826338
-const ELIO = 1022787
-const F1 = 911430
-const FRANKEN = 1062722
-const HAMNET = 858024
-const IF_I_HAD = 1160360
-const IT_WAS_JUST = 1456349
-const JURASSIC = 1234821
-const KOKUHO = 1379266
-const KPOP = 803796
-const AMELIE = 682012
-const MARTY = 1317288
-const MRNOBO = 1393151
-const BATTLE = 1054867
-const SENTIMEN = 1124566
-const SIRAT = 1151272
-const SONGSUNG = 1371185
-const ALABAMA = 1413805
-const LOSTBUS = 1236470
-const PERFECT = 1400782
-const SECRETAGENT = 1220564
-const SMASHINGMA = 760329
-const STEPSISTER = 1284120
-const VOICE = 1480382
-const TRAINDREAMS = 1241983
-const WEAPONS = 1078605
-const ZOOTOPIA = 1084242
+const reverseKV = (obj: object) =>
+  Object.fromEntries(Object.entries(obj).map(([a, b]) => [b, a]))
 
 export const MOVIE_TO_ID = {
-  Arco: ARCO,
-  'Avatar: Fire and Ash': AFAA,
-  'Blue Moon': BLUE_MOON,
-  'Come See Me in the Good Light': COME_SEE_ME,
-  'Cutting Through Rocks': CUTTING_THROUGH_ROCKS,
-  'Diane Warren: Relentless': DIANE_WARREN,
-  'It Was Just an Accident': IT_WAS_JUST,
-  'Jurassic World Rebirth': JURASSIC,
-  'K-Pop: Demon Hunters': KPOP,
-  'Little Amélie or The Character of Rain': AMELIE,
-  'Marty Supreme': MARTY,
-  'Mr. Nobody Against Putin': MRNOBO,
-  'One Battle After Another': BATTLE,
-  'Sentimental Value': SENTIMEN,
-  'Song Sung Blue': SONGSUNG,
-  'The Alabama Solution': ALABAMA,
-  'The Lost Bus': LOSTBUS,
-  'The Perfect Neighbor': PERFECT,
-  'The Secret Agent': SECRETAGENT,
-  'The Smashing Machine': SMASHINGMA,
-  'The Ugly Stepsister': STEPSISTER,
-  'The Voice of Hind Rajab': VOICE,
-  'Train Dreams': TRAINDREAMS,
-  'Zootopia 2': ZOOTOPIA,
-  "If I Had Legs I'd Kick You": IF_I_HAD,
-  Bugonia: BUGONIA,
-  Elio: ELIO,
-  F1: F1,
-  Frankenstein: FRANKEN,
-  Hamnet: HAMNET,
-  Kokuho: KOKUHO,
-  Sinners: SINNERS,
-  Sirât: SIRAT,
-  Weapons: WEAPONS,
-  'Viva Verdi!': 1358554,
-  "Butcher's Stain": 1560394,
   'A Friend of Dorothy': 1470465,
-  "Jane Austen's Period Drama": 1272266,
-  'The Singers': 1442908,
-  'Two People Exchanging Saliva': 1340625,
-  Butterfly: 1233361,
-  Forevergreen: 1477914,
-  'The Girl Who Cried Pearls': 1142149,
-  'Retirement Plan': 1316745,
-  'The Three Sisters': 1302562,
   'All the Empty Rooms': 1525091,
   'Armed Only with a Camera: The Life and Death of Brent Renaud': 1422051,
+  'Avatar: Fire and Ash': 83533,
+  'Blue Moon': 1299655,
   'Children No More: Were and Are Gone': 1560400,
-  'The Devil Is Busy': 1373150,
+  'Come See Me in the Good Light': 1400780,
+  'Cutting Through Rocks': 1400793,
+  'Diane Warren: Relentless': 826338,
+  'It Was Just an Accident': 1456349,
+  'Jurassic World Rebirth': 1234821,
+  'K-Pop: Demon Hunters': 803796,
+  'Little Amélie or The Character of Rain': 682012,
+  'Marty Supreme': 1317288,
+  'Mr. Nobody Against Putin': 1393151,
+  'One Battle After Another': 1054867,
   'Perfectly a Strangeness': 1278954,
-}
-type Category = {
-  name: string
-  nominations: number[]
-}
+  'Retirement Plan': 1316745,
+  'Sentimental Value': 1124566,
+  'Song Sung Blue': 1371185,
+  'The Alabama Solution': 1413805,
+  'The Devil Is Busy': 1373150,
+  'The Girl Who Cried Pearls': 1142149,
+  'The Lost Bus': 1236470,
+  'The Perfect Neighbor': 1400782,
+  'The Secret Agent': 1220564,
+  'The Singers': 1442908,
+  'The Smashing Machine': 760329,
+  'The Three Sisters': 1302562,
+  'The Ugly Stepsister': 1284120,
+  'The Voice of Hind Rajab': 1480382,
+  'Train Dreams': 1241983,
+  'Two People Exchanging Saliva': 1340625,
+  'Viva Verdi!': 1358554,
+  'Zootopia 2': 1084242,
+  "Butcher's Stain": 1560394,
+  "If I Had Legs I'd Kick You": 1160360,
+  "Jane Austen's Period Drama": 1272266,
+  Arco: 804370,
+  Bugonia: 701387,
+  Butterfly: 1233361,
+  Elio: 1022787,
+  F1: 911430,
+  Forevergreen: 1477914,
+  Frankenstein: 1062722,
+  Hamnet: 858024,
+  Kokuho: 1379266,
+  Sinners: 1233413,
+  Sirât: 1151272,
+  Weapons: 1078605,
+} as const
 
-export const BEST_PICTURE = {
-  name: 'Best Picture',
-  nominations: [
-    BUGONIA,
-    F1,
-    FRANKEN,
-    HAMNET,
-    MARTY,
-    BATTLE,
-    SENTIMEN,
-    SINNERS,
-    TRAINDREAMS,
-    SECRETAGENT,
-  ],
-} as Category
+export const MOVIE_TO_EMOJI = {
+  'A Friend of Dorothy': '🏳️‍🌈',
+  'All the Empty Rooms': '🧸',
+  'Armed Only with a Camera: The Life and Death of Brent Renaud': '📷',
+  'Avatar: Fire and Ash': '🔥',
+  'Blue Moon': '🎹',
+  'Children No More: Were and Are Gone': '🕯️',
+  'Come See Me in the Good Light': '🎤',
+  'Cutting Through Rocks': '🇮🇷',
+  'Diane Warren: Relentless': '🎼',
+  'It Was Just an Accident': '🚗',
+  'Jurassic World Rebirth': '🦖',
+  'K-Pop: Demon Hunters': '💃',
+  'Little Amélie or The Character of Rain': '🌧️',
+  'Marty Supreme': '🏓',
+  'Mr. Nobody Against Putin': '🇷🇺',
+  'One Battle After Another': '🏃‍♂️‍➡️',
+  'Perfectly a Strangeness': '🫏',
+  'Retirement Plan': '📝',
+  'Sentimental Value': '🎭',
+  'Song Sung Blue': '💎',
+  'The Alabama Solution': '⛓️',
+  'The Devil Is Busy': '🏥',
+  'The Girl Who Cried Pearls': '🐚',
+  'The Lost Bus': '🚌',
+  'The Perfect Neighbor': '🏘️',
+  'The Secret Agent': '🕵️‍♂️',
+  'The Singers': '🎶',
+  'The Smashing Machine': '🥊',
+  'The Three Sisters': '🏝️',
+  'The Ugly Stepsister': '👠',
+  'The Voice of Hind Rajab': '📞',
+  'Train Dreams': '🌲',
+  'Two People Exchanging Saliva': '💋',
+  'Viva Verdi!': '🏰',
+  'Zootopia 2': '🐰',
+  "Butcher's Stain": '🔪',
+  "If I Had Legs I'd Kick You": '🦵',
+  "Jane Austen's Period Drama": '🩸',
+  Arco: '🌈',
+  Bugonia: '👽',
+  Butterfly: '🏊',
+  Elio: '🌌',
+  F1: '🏎️',
+  Forevergreen: '🌳',
+  Frankenstein: '🧟',
+  Hamnet: '🖋️',
+  Kokuho: '👘',
+  Sinners: '🧛',
+  Sirât: '🔊',
+  Weapons: '🚸',
+} as const
 
-export const DIRECTOR = {
-  name: 'Best Director',
-  nominations: [BATTLE, SINNERS, SENTIMEN, MARTY, HAMNET],
-} as Category
+export const EMOJI_TO_MOVIE = reverseKV(MOVIE_TO_EMOJI)
 
-export const ACTOR = {
-  name: 'Best Actor',
-  nominations: [MARTY, BATTLE, BLUE_MOON, SINNERS, SECRETAGENT],
-} as Category
+export const NOMINEE_TO_EMOJI = {
+  'Actor in a Leading Role': {
+    'Timothée Chalamet': '🏓',
+    'Leonardo DiCaprio': '🏃',
+    'Ethan Hawke': '🥃',
+    'Michael B. Jordan': '👥',
+    'Wagner Moura': '🫥',
+  },
+  'Actress in a Leading Role': {
+    'Jessie Buckley': '🌿',
+    'Rose Byrne': '🤱',
+    'Kate Hudson': '🎤',
+    'Renate Reinsve': '🎭',
+    'Emma Stone': '👩‍🦲',
+  },
+  'Actor in a Supporting Role': {
+    'Benicio del Toro': '🥋',
+    'Jacob Elordi': '🔩',
+    'Delroy Lindo': '🎹',
+    'Sean Penn': '⚖️',
+    'Stellan Skarsgård': '🎬',
+  },
+  'Actress in a Supporting Role': {
+    'Elle Fanning': '👩‍👩‍👧',
+    'Inga Ibsdotter Lilleaas': '👧',
+    'Amy Madigan': '🧹',
+    'Wunmi Mosaku': '🪴',
+    'Teyana Taylor': '🐀',
+  },
+} as const
 
-export const ACTRESS = {
-  name: 'Best Actress',
-  nominations: [HAMNET, IF_I_HAD, SONGSUNG, SENTIMEN, BUGONIA],
-} as Category
-
-export const SUP_ACTOR = {
-  name: 'Best Supporting Actor',
-  nominations: [SINNERS, BATTLE, FRANKEN, BATTLE, SENTIMEN],
-} as Category
-
-export const SUP_ACTRESS = {
-  name: 'Best Supporting Actress',
-  nominations: [WEAPONS, SINNERS, BATTLE, SENTIMEN, SENTIMEN],
-} as Category
-
-export const ORIGINAL = {
-  name: 'Best Original Screenplay',
-  nominations: [BLUE_MOON, MARTY, SENTIMEN, SINNERS, IT_WAS_JUST],
-} as Category
-
-export const ADAPTED = {
-  name: 'Best Adapted Screenplay',
-  nominations: [BUGONIA, FRANKEN, HAMNET, BATTLE, TRAINDREAMS],
-} as Category
-
-export const CASTING = {
-  name: 'Best Casting',
-  nominations: [SECRETAGENT, MARTY, BATTLE, SINNERS, HAMNET],
-} as Category
-
-export const ANIMATED = {
-  name: 'Best Animated Feature Film',
-  nominations: [ARCO, ELIO, KPOP, AMELIE, ZOOTOPIA],
-} as Category
-
-export const PROD = {
-  name: 'Production Design',
-  nominations: [BATTLE, HAMNET, MARTY, SINNERS, FRANKEN],
-} as Category
-
-export const CINEMA = {
-  name: 'Cinematography',
-  nominations: [FRANKEN, MARTY, BATTLE, SINNERS, TRAINDREAMS],
-} as Category
-
-export const COSTUME = {
-  name: 'Costume Design',
-  nominations: [FRANKEN, HAMNET, MARTY, SINNERS, AFAA],
-} as Category
-
-export const EDITING = {
-  name: 'Film Editing',
-  nominations: [F1, SENTIMEN, MARTY, BATTLE, SINNERS],
-} as Category
-
-export const MAKEUP = {
-  name: 'Makeup and Hairstyling',
-  nominations: [FRANKEN, SMASHINGMA, STEPSISTER, SINNERS, KOKUHO],
-} as Category
-
-export const SOUND = {
-  name: 'Sound',
-  nominations: [SIRAT, F1, BATTLE, SINNERS, FRANKEN],
-} as Category
-
-export const VFX = {
-  name: 'Visual Effects',
-  nominations: [AFAA, F1, JURASSIC, SINNERS, LOSTBUS],
-} as Category
-
-export const MUSIC = {
-  name: 'Original Score',
-  nominations: [FRANKEN, HAMNET, BATTLE, SINNERS, BUGONIA],
-} as Category
-
-export const DOCUMENTARY = {
-  name: 'Documentary Feature Film',
-  nominations: [ALABAMA, CUTTING_THROUGH_ROCKS, PERFECT, COME_SEE_ME, MRNOBO],
-} as Category
-
-export const INTERNACIONAL = {
-  name: 'International Feature Film',
-  nominations: [SIRAT, SECRETAGENT, SENTIMEN, VOICE, IT_WAS_JUST],
-} as Category
+export const EMOJI_TO_NOMINEE = Object.fromEntries(
+  Object.entries(NOMINEE_TO_EMOJI).map(([a, b]) => [a, reverseKV(b)]),
+)
 
 export const CATEGORIES = {
   'Best Picture': [
@@ -371,7 +314,7 @@ export const CATEGORIES = {
     'The Devil Is Busy',
     'Perfectly a Strangeness',
   ],
-}
+} as const
 
 export const BallotForm = z.object({
   'Best Picture': z.number(),
