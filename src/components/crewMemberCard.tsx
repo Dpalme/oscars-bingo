@@ -34,7 +34,7 @@ export function CrewCard({
       <div className="pt-2 flex flex-col justify-center text-left md:text-center">
         {extra && <p className="mb-1 text-slate-500 text-lg">{extra}</p>}
         <h3 className="mb-1 text-sm">{person?.name}</h3>
-        <p>{movie?.character}</p>
+        <p className="text-sm">{movie?.character}</p>
         <p className="text-slate-400 text-xs">({movie?.title})</p>
       </div>
     </div>

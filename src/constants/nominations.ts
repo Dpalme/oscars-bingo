@@ -73,7 +73,7 @@ export const NOMINEE_TO_ID = {
   "Sean Penn": 2228,
   "Stellan Skarsgård": 1640,
   "Elle Fanning": 18050,
-  "Inga Ibsdotter Lilleaas": 142850,
+  "Inga Ibsdotter Lilleaas": 1421850,
   "Amy Madigan": 23882,
   "Wunmi Mosaku": 134774,
   "Teyana Taylor": 964679,

@@ -33,8 +33,10 @@ export function CastBackdrop({
       <div className="p-2 flex flex-col w-full">
         <h2 className="text-4xl py-4">{category}</h2>
         <p className="text-2xl">{nominee}</p>
-        <h3>{movie?.character}</h3>
-        <p>{movie?.title}</p>
+        <p>
+          as <b className="font-semibold">{movie?.character}</b>
+        </p>
+        <p className="font-title">{movie?.title}</p>
       </div>
     </>
   );
