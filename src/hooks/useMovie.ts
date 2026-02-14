@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { AxiosError } from 'axios'
-import { TMDBFetch } from './useTMDB'
+import { TMDBFetch } from '../helpers/TMDBFetch'
 
 export interface TMDBImage {
   aspect_ratio: number
@@ -38,7 +38,7 @@ export interface MovieImages {
 
 export async function getMovie(movieId: number | string): Promise<ITMDBMovie> {
   return TMDBFetch(
-    '/3/movie/' + movieId + '?append_to_response=images',
+    '/3/movie/' + movieId,
   ) as unknown as Promise<ITMDBMovie>
 }
 

@@ -7,6 +7,9 @@ export default function QueryProvider({ children }: { children: ReactNode }) {
       queries: {
         retry: false,
         staleTime: Infinity,
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
+        refetchOnMount: false
       },
       mutations: {
         retry: false,

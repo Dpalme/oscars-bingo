@@ -10,7 +10,7 @@ export function MovieCard({
 }) {
   const { movie } = useMovie(movieId)
   return (
-    <div className="flex md:flex-col gap-2">
+    <div className="flex md:flex-col gap-2 md:gap-0">
       <div
         className="hover:z-2 transform-gpu transition-transform duration-300 hover:scale-110!"
         style={{ aspectRatio: '0.667 / 1' }}
@@ -23,7 +23,7 @@ export function MovieCard({
           />
         )}
       </div>
-      <div className="pt-2 flex flex-col justify-center text-left md:text-center">
+      <div className="pt-2 flex flex-col justify-center text-left md:text-center h-full">
         {extra && <p className="mb-1 text-slate-500 text-lg">{extra}</p>}
         <h3 className="mb-1 text-sm">{movie?.title}</h3>
         {movie?.title !== movie?.original_title && (
