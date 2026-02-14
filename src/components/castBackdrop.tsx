@@ -6,9 +6,13 @@ import type { NOMINEE_TO_ID } from "../constants/nominations";
 export function CastBackdrop({
   peopleName,
   movieId,
+  nominee,
+  category,
 }: {
   peopleName: keyof typeof NOMINEE_TO_ID;
   movieId: number;
+  nominee: string;
+  category: string;
 }) {
   const { data: castMember } = useCrewMember(peopleName);
   const movie = useMemo(
@@ -21,13 +25,15 @@ export function CastBackdrop({
         <TMDBImage
           type="poster"
           path={castMember.profile_path}
-          className="absolute top-0 left-0 -z-2 h-full w-full object-cover object-center"
+          className="-z-2 h-[70vh] w-full object-contain object-center"
           fullSize={true}
         />
       )}
-      <div className="absolute top-0 left-0 -z-1 h-full w-full bg-radial from-20% from-transparent to-black"></div>
-      <div className="p-2 text-slate-300">
-        <h2>{movie?.character}</h2>
+      {/* <div className="absolute top-0 left-0 -z-1 h-full w-full bg-radial from-20% from-transparent to-black"></div> */}
+      <div className="p-2 flex flex-col w-full">
+        <h2 className="text-4xl py-4">{category}</h2>
+        <p className="text-2xl">{nominee}</p>
+        <h3>{movie?.character}</h3>
         <p>{movie?.title}</p>
       </div>
     </>

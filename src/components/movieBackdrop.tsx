@@ -1,8 +1,8 @@
-import { TMDBImage } from './tmdbimages/tmdbImg'
-import { useMovie } from '../hooks/useMovie'
+import { TMDBImage } from "./tmdbimages/tmdbImg";
+import { useMovie } from "../hooks/useMovie";
 
 export function MovieBackdrop({ movieId }: { movieId: number }) {
-  const { movie } = useMovie(movieId)
+  const { movie } = useMovie(movieId);
   return (
     <>
       {movie && (
@@ -14,12 +14,12 @@ export function MovieBackdrop({ movieId }: { movieId: number }) {
         />
       )}
       <div className="absolute top-0 left-0 -z-1 h-full w-full bg-radial from-20% from-transparent to-black"></div>
-      <div className="p-2 text-slate-300">
+      <div className="p-2 text-slate-200">
         {movie?.images?.logos?.length ? (
           <TMDBImage
             type="logo"
             path={
-              movie.images.logos.find((image) => image.iso_639_1 == 'en')
+              movie.images.logos.find((image) => image.iso_639_1 == "en")
                 ?.file_path ?? movie.images.logos[0].file_path
             }
             alt={movie.title}
@@ -31,5 +31,5 @@ export function MovieBackdrop({ movieId }: { movieId: number }) {
         )}
       </div>
     </>
-  )
+  );
 }

@@ -64,19 +64,25 @@ export function Ballot(props: {
       {categories.map(([category, movie]) => {
         return (
           <div className="grid" key={category}>
-            <h2 className="text-2xl py-4">{category}</h2>
-
             <div
               className="relative isolate flex flex-col items-center justify-end h-[70vh] p-4"
               key={category + movie.id}
             >
-              {movie.nominee && (
-                <p className="text-2xl text-white">{movie.nominee}</p>
-              )}
               {category in NOMINEE_TO_EMOJI ? (
-                <CastBackdrop peopleName={movie.nominee!} movieId={movie.id} />
+                <div className="flex flex-row items-center justify-start gap-2 w-full">
+                  <CastBackdrop
+                    peopleName={movie.nominee!}
+                    movieId={movie.id}
+                    nominee={movie.nominee!}
+                    category={category}
+                  />
+                </div>
               ) : (
-                <MovieBackdrop movieId={movie.id} />
+                <>
+                  {movie.nominee && <p className="text-2xl">{movie.nominee}</p>}
+                  <MovieBackdrop movieId={movie.id} />
+                  <h2 className="text-4xl py-4">{category}</h2>
+                </>
               )}
             </div>
           </div>
