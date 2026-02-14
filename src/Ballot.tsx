@@ -44,7 +44,7 @@ export function Ballot(props: {
           <button
             className="px-4 py-2 rounded-md bg-[#7f1b1e] text-white! cursor-pointer"
             onClick={() => {
-              shareBallot(emojifiedBallot);
+              shareBallot(emojifiedBallot, Object.values(props.ballot));
             }}
           >
             <h2>Share</h2>
