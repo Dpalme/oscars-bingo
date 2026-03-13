@@ -45,7 +45,7 @@ export function Voting() {
   };
 
   return (
-    <div ref={title} className="flex flex-col gap-8 text-center my-16 pb-16 min-h-screen">
+    <div ref={title} className="flex flex-col gap-8 text-center my-16 pb-32 min-h-screen">
       <h1>98th Academy Awards</h1>
       {!shouldShowBallot ? (
         <Form
