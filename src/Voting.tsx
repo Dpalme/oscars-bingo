@@ -45,7 +45,7 @@ export function Voting() {
   };
 
   return (
-    <div ref={title} className="flex flex-col gap-8 text-center my-16 min-h-screen">
+    <div ref={title} className="flex flex-col gap-8 text-center my-16 pb-16 min-h-screen">
       <h1>98th Academy Awards</h1>
       {!shouldShowBallot ? (
         <Form
@@ -56,7 +56,7 @@ export function Voting() {
           onChange={() => {
             localStorage.setItem("votes", JSON.stringify(votes));
           }}
-          className="flex flex-col gap-16 px-4 max-w-4xl mx-auto "
+          className="flex flex-col gap-16 px-4 max-w-4xl mx-auto"
         >
           {Object.entries(CATEGORIES).map(([name, nominations]) => {
             const movies = categoryToNominations(nominations);
