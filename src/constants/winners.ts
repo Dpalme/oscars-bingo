@@ -86,7 +86,7 @@ export const WINNERS = {
   "Makeup and Hairstyling": [
     "Frankenstein",
   ],
-  Sound: ["F1", "Frankenstein", "One Battle After Another", "Sinners", "Sirât"],
+  Sound: ["F1"],
   "Visual Effects": [
     "Avatar: Fire and Ash",
   ],
