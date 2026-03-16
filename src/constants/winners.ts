@@ -13,10 +13,6 @@ export const WINNERS = {
   ],
   Directing: [
     "Paul Thomas Anderson",
-    "Ryan Coogler",
-    "Josh Safdie",
-    "Joachim Trier",
-    "Chloé Zhao",
   ],
   "Actor in a Leading Role": [
     "Timothée Chalamet",
