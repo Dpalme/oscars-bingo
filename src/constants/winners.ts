@@ -87,10 +87,6 @@ export const WINNERS = {
   ],
   "Production Design": [
     "Frankenstein",
-    "Hamnet",
-    "Marty Supreme",
-    "One Battle After Another",
-    "Sinners",
   ],
   "Costume Design": [
     "Frankenstein",
