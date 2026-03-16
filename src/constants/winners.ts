@@ -55,11 +55,7 @@ export const WINNERS = {
     "The Voice of Hind Rajab",
   ],
   "Documentary Feature Film": [
-    "The Alabama Solution",
-    "Come See Me in the Good Light",
-    "Cutting Through Rocks",
     "Mr. Nobody Against Putin",
-    "The Perfect Neighbor",
   ],
   Cinematography: [
     "Frankenstein",
