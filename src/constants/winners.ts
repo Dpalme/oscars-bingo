@@ -58,11 +58,7 @@ export const WINNERS = {
     "Mr. Nobody Against Putin",
   ],
   Cinematography: [
-    "Frankenstein",
-    "Marty Supreme",
-    "One Battle After Another",
     "Sinners",
-    "Train Dreams",
   ],
   "Film Editing": [
     "One Battle After Another",
