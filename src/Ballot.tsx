@@ -10,6 +10,7 @@ import { MovieBackdrop } from "./components/movieBackdrop";
 import { nominationToEmoji } from "./helpers/nominationToEmoji";
 import { shareBallot } from "./helpers/shareBallot";
 import { CastBackdrop } from "./components/castBackdrop";
+import { WINNERS } from "./constants/winners";
 
 export function Ballot(props: {
   submitted: boolean;
@@ -30,10 +31,23 @@ export function Ballot(props: {
       Object.entries(props.ballot)
         .map(([categoryName, vote]): string =>
           nominationToEmoji(categoryName as keyof typeof CATEGORIES, vote),
-        )
-        .join(""),
+        ),
     [props.ballot],
   );
+
+  const [score, output] = useMemo(() => {
+    const output: string[] = [];
+    let score = 0;
+    categories.forEach(([category, movie]) => {
+      if (WINNERS[category as keyof typeof WINNERS].includes(movie.nominee ?? movie.name)) {
+        score = score + 1;
+        output.push('🟩')
+      } else {
+        output.push('🟥')
+      }
+    })
+    return [score, output] as const
+  }, [categories])
 
   return (
     <div className="grid gap-8">
@@ -44,22 +58,26 @@ export function Ballot(props: {
           <button
             className="px-4 py-2 rounded-md bg-[#7f1b1e] text-white! cursor-pointer"
             onClick={() => {
-              shareBallot(emojifiedBallot, Object.values(props.ballot));
+              shareBallot(emojifiedBallot.join(''), Object.values(props.ballot));
             }}
           >
             <h2>Share</h2>
           </button>
         </div>
       ) : (
-        <div className="flex flex-col gap-4 max-w-lg w-full mx-auto p-4 rounded-md shadow-md">
-          <h2>Want to join the fun?</h2>
-          <button
-            className="px-4 py-2 rounded-md bg-[#7f1b1e] cursor-pointer text-white uppercase font-title"
-            type="button"
-            onClick={props.goBack}
-          >
-            Make your own bingo card
-          </button>
+        <div className="flex flex-col gap-4 max-w-4xl w-full mx-auto p-4 rounded-md shadow-md">
+          <h2>Final Score&nbsp;&nbsp;&nbsp;<span className="text-[#7f1b1e] text-xl">{((score/24) * 100).toFixed(2)}%</span></h2>
+          <div className="grid gap-4 grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
+            {output.map((_, i) => (<div className="flex flex-col mb-4">
+          <p>
+          {emojifiedBallot[i]}
+          </p>
+          <p>
+          {output[i]}
+          </p>
+          <p>{Object.keys(CATEGORIES)[i]}</p>
+            </div>))}
+          </div>
         </div>
       )}
       {categories.map(([category, movie]) => {
