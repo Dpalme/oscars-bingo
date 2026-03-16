@@ -1,15 +1,7 @@
 export const WINNERS = {
   "Best Picture": [
-    "Bugonia",
-    "F1",
-    "Frankenstein",
-    "Hamnet",
-    "Marty Supreme",
     "One Battle After Another",
-    "The Secret Agent",
-    "Sentimental Value",
     "Sinners",
-    "Train Dreams",
   ],
   Directing: [
     "Paul Thomas Anderson",
@@ -19,10 +11,6 @@ export const WINNERS = {
   ],
   "Actress in a Leading Role": [
     "Jessie Buckley",
-    "Rose Byrne",
-    "Kate Hudson",
-    "Renate Reinsve",
-    "Emma Stone",
   ],
   "Actor in a Supporting Role": [
     "Sean Penn",
