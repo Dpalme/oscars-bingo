@@ -97,10 +97,6 @@ export const WINNERS = {
   Sound: ["F1", "Frankenstein", "One Battle After Another", "Sinners", "Sirât"],
   "Visual Effects": [
     "Avatar: Fire and Ash",
-    "F1",
-    "Jurassic World Rebirth",
-    "The Lost Bus",
-    "Sinners",
   ],
   Casting: [
     "One Battle After Another",
