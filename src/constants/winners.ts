@@ -1,7 +1,6 @@
 export const WINNERS = {
   "Best Picture": [
     "One Battle After Another",
-    "Sinners",
   ],
   Directing: [
     "Paul Thomas Anderson",
