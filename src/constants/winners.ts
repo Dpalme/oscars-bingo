@@ -72,10 +72,6 @@ export const WINNERS = {
     "Sinners",
   ],
   "Original Score": [
-    "Bugonia",
-    "Frankenstein",
-    "Hamnet",
-    "One Battle After Another",
     "Sinners",
   ],
   "Original Song": [
