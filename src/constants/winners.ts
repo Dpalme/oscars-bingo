@@ -48,11 +48,7 @@ export const WINNERS = {
     "K-Pop: Demon Hunters",
   ],
   "International Feature Film": [
-    "It Was Just an Accident",
-    "The Secret Agent",
     "Sentimental Value",
-    "Sirât",
-    "The Voice of Hind Rajab",
   ],
   "Documentary Feature Film": [
     "Mr. Nobody Against Putin",
