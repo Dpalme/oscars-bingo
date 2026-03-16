@@ -15,11 +15,7 @@ export const WINNERS = {
     "Paul Thomas Anderson",
   ],
   "Actor in a Leading Role": [
-    "Timothée Chalamet",
-    "Leonardo DiCaprio",
-    "Ethan Hawke",
     "Michael B. Jordan",
-    "Wagner Moura",
   ],
   "Actress in a Leading Role": [
     "Jessie Buckley",
