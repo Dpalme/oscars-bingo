@@ -110,9 +110,5 @@ export const WINNERS = {
   ],
   "Documentary Short Film": [
     "All the Empty Rooms",
-    "Armed Only with a Camera: The Life and Death of Brent Renaud",
-    "Children No More: Were and Are Gone",
-    "The Devil Is Busy",
-    "Perfectly a Strangeness",
   ],
 } as Record<string, string[]>;
