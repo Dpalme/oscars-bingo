@@ -1,14 +1,14 @@
-{
-  "tabWidth": 2,
-  "useTabs": false,
-  "arrowParens": "always",
-  "endOfLine": "lf",
-  "printWidth": 80,
-  "singleQuote": true,
-  "jsxSingleQuote": false,
-  "semi": true,
-  "singleAttributePerLine": true,
-  "trailingComma": "all",
-  "htmlWhitespaceSensitivity": "css",
-  "plugins": ["prettier-plugin-tailwindcss"]
-}
+export default {
+  tabWidth: 2,
+  useTabs: false,
+  arrowParens: 'always',
+  endOfLine: 'lf',
+  printWidth: 80,
+  singleQuote: true,
+  jsxSingleQuote: false,
+  semi: true,
+  singleAttributePerLine: true,
+  trailingComma: 'all',
+  htmlWhitespaceSensitivity: 'css',
+  plugins: ['prettier-plugin-tailwindcss'],
+};
