@@ -65,11 +65,7 @@ export const WINNERS = {
     "Train Dreams",
   ],
   "Film Editing": [
-    "F1",
-    "Marty Supreme",
     "One Battle After Another",
-    "Sentimental Value",
-    "Sinners",
   ],
   "Original Score": [
     "Sinners",
